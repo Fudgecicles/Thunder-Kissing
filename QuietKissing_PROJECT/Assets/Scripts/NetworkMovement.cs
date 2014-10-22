@@ -8,7 +8,10 @@ public class NetworkMovement : Photon.MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-	
+		if (!photonView.isMine) {
+			//GetComponent<CharacterController>().enabled = false;
+			GetComponent<CharacterMotor>().enabled = false;
+		}
 	}
 	
 	// Update is called once per frame

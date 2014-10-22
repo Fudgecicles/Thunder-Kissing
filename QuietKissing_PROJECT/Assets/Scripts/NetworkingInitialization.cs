@@ -36,8 +36,7 @@ public class NetworkingInitialization : MonoBehaviour {
         look.enabled = true;
         AudioListener listener = monster.GetComponentInChildren<AudioListener>();
         listener.enabled = true;
-
-    }
+	}
 
     void OnGUI()
     {
