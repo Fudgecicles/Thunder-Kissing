@@ -25,7 +25,7 @@ public class NetworkingInitialization : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        GameObject monster = PhotonNetwork.Instantiate("Prefabs/BlueDragon", Vector3.zero, Quaternion.identity, 0);
+        GameObject monster = PhotonNetwork.Instantiate("Prefabs/prf_Cupid", Vector3.zero, Quaternion.identity, 0);
         CharacterController controller = monster.GetComponent<CharacterController>();
         controller.enabled = true;
         Camera cam = monster.GetComponentInChildren<Camera>();
