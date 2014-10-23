@@ -5,11 +5,11 @@
 	<Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
 	<ProductVersion>10.0.20506</ProductVersion>
 	<SchemaVersion>2.0</SchemaVersion>
-	<ProjectGuid>{EAEF3F22-1BC2-4746-B533-3D234B5366F2}</ProjectGuid>
+	<ProjectGuid>{EFFB1BC0-46A4-A1D4-BE2F-C1418F129048}</ProjectGuid>
 	<OutputType>Library</OutputType>
 	<AppDesignerFolder>Properties</AppDesignerFolder>
 	<RootNamespace></RootNamespace>
-	<AssemblyName>Assembly-CSharp-Editor</AssemblyName>
+	<AssemblyName>Assembly-UnityScript</AssemblyName>
 	<TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
 	<FileAlignment>512</FileAlignment>
 	<BaseDirectory>Assets</BaseDirectory>
@@ -46,43 +46,20 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Demos\DemoHub\Editor\PunStartup.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Demos\PUNGuide_M2H\zSharedAssets\Editor\FixBuildSettings.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\AccountService.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PhotonConverter.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PhotonEditor.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PhotonViewHandler.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PhotonViewInspector.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PhotonViewPrefabApply.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\PunSceneSettings.cs" />
-     <Compile Include="Assets\_IMPORT\Photon Unity Networking\Editor\PhotonNetwork\ServerSettingsInspector.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Actions\ProBuilderizeGameObject.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Geometry\ExtrudeFace.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Geometry\PivotTool.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\CleanUpLeakedMeshes.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\ComponentCheck.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\DegenerateTris.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\FixGameObjectFlags.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\FixShaderWantsNormals.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\ForceMakeUnique.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\ForceMeshRefresh.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\RebuildSharedIndices.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Repair\RebuildVertexCaches.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Selection\EdgeSelection.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Selection\ExpandSelection.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\MenuItems\Selection\InvertSelection.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\ProBuilderMenuItems.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Prototype\Editor\pb_Preferences.cs" />
-     <Compile Include="Assets\_IMPORT\ProCore\Shared\About\Editor\pc_AboutWindow.cs" />
+     <Compile Include="Assets\_IMPORT\Standard Assets\Character Controllers\Sources\Scripts\CharacterMotor.js" />
+     <Compile Include="Assets\_IMPORT\Standard Assets\Character Controllers\Sources\Scripts\FPSInputController.js" />
+     <Compile Include="Assets\_IMPORT\Standard Assets\Character Controllers\Sources\Scripts\PlatformInputController.js" />
+     <Compile Include="Assets\_IMPORT\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonCamera.js" />
+     <Compile Include="Assets\_IMPORT\Standard Assets\Character Controllers\Sources\Scripts\ThirdPersonController.js" />
      <None Include="Assets\_IMPORT\Cartoony Weapon Pack\Readme.txt" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
+     <None Include="Assets\_IMPORT\Standard Assets\Toon Shading\Sources\Shaders\Toony-Basic.shader" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\About\changelog.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\VertexBillboard.shader" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColor.shader" />
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\_IMPORT\ProCore\Shared\About\README.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
-     <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
+     <None Include="Assets\_IMPORT\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\UnlitColor.shader" />
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\DemoBoxes\Resources\eurof_tt.txt" />
@@ -95,9 +72,6 @@
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
      <None Include="Assets\_IMPORT\Photon Unity Networking\changelog.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\About\Credits.txt" />
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
- </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
@@ -107,22 +81,12 @@
  <Reference Include="ProBuilderMeshOps">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Prototype/Classes/ProBuilderMeshOps.dll</HintPath>
  </Reference>
- <Reference Include="ProBuilderEditor">
- <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Prototype/Editor/ProBuilderEditor.dll</HintPath>
- </Reference>
  <Reference Include="ProCore">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Shared/Code/ProCore.dll</HintPath>
  </Reference>
  <Reference Include="SixBySeven">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
- <Reference Include="UnityEditor.Graphs">
- <HintPath>C:/Program Files (x86)/Unity/Editor/Data/Managed/UnityEditor.Graphs.dll</HintPath>
- </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-vs.csproj">
-      <Project>{2C268A07-7862-1514-9CA2-F18C917EFF83}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
