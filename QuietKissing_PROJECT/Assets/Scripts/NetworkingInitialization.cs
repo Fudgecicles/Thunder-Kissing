@@ -23,8 +23,11 @@ public class NetworkingInitialization : MonoBehaviour {
         PhotonNetwork.CreateRoom(null);
     }
 
+    
+
     void OnJoinedRoom()
     {
+
         GameObject monster = PhotonNetwork.Instantiate("Prefabs/prf_Cupid", Vector3.zero, Quaternion.identity, 0);
         CharacterController controller = monster.GetComponent<CharacterController>();
         controller.enabled = true;

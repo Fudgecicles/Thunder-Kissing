@@ -67,6 +67,8 @@ Shader "Toon/Basic Outline" {
 			Blend SrcAlpha OneMinusSrcAlpha
 
 			CGPROGRAM
+// Upgrade NOTE: excluded shader from OpenGL ES 2.0 because it does not contain a surface program or both vertex and fragment programs.
+#pragma exclude_renderers gles
 			#pragma vertex vert
 			#pragma exclude_renderers shaderonly
 			ENDCG
