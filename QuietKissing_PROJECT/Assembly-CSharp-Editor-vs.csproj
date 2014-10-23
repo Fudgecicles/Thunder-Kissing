@@ -95,11 +95,14 @@
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
      <None Include="Assets\_IMPORT\Photon Unity Networking\changelog.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\About\Credits.txt" />
- <Reference Include="Newtonsoft.Json">
- <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
+ <Reference Include="Assembly-UnityScript-firstpass">
+ <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
  </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/Plugins/Photon3Unity3D.dll</HintPath>
+ </Reference>
+ <Reference Include="Newtonsoft.Json">
+ <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/Photon Unity Networking/Editor/PhotonNetwork/Newtonsoft.Json.dll</HintPath>
  </Reference>
  <Reference Include="ProBuilderCore">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Prototype/Classes/ProBuilderCore.dll</HintPath>
@@ -121,6 +124,8 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass-vs.csproj">
+      <Project>{70B3C6E7-C686-9305-64C8-414E5AD6093D}</Project>      <Name>Assembly-CSharp-firstpass-vs</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp-vs.csproj">
       <Project>{2C268A07-7862-1514-9CA2-F18C917EFF83}</Project>      <Name>Assembly-CSharp-vs</Name>    </ProjectReference>
   </ItemGroup>
