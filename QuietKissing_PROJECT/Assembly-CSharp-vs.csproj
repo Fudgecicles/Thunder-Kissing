@@ -132,6 +132,7 @@
      <Compile Include="Assets\_IMPORT\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\_IMPORT\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\_IMPORT\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
+     <Compile Include="Assets\_Scripts\Lover.cs" />
      <Compile Include="Assets\_Scripts\NetworkMovement.cs" />
      <Compile Include="Assets\_Scripts\NetworkingInitialization.cs" />
      <Compile Include="Assets\_Scripts\PlayerManager.cs" />
