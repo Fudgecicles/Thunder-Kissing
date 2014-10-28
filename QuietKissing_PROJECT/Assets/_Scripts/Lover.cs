@@ -3,12 +3,30 @@ using System.Collections;
 
 public class Lover : MonoBehaviour {
 	public AudioSource sfx_kiss; // looping kissing noise that plays while kissing
+	public AudioSource sfx_kissMutualMusic; // looping kissmutual music that plays while kissing mutually
 	public Vector4 kissingBounds; // clamping of the mouse look while kissing (x:min/max, y:min/max)
 
 	private Vector4 originalBounds;
 	private MouseLook[] mouseLooks;
 	private PhotonView photonView;
-	public bool isKissing; // should be private
+
+	private bool m_isKissing;
+	public bool IsKissing {
+		get { return m_isKissing; }
+	}
+
+	private float m_score;
+	public int Score {
+		get { return (int)m_score; }
+	}
+
+	private bool m_isKissingMutual;
+	public bool IsKissingMutual {
+		get { return m_isKissingMutual; }
+	}
+
+	private float durationOfCurrentMutualKiss = 0;
+	private Lover currentlyKissingThisLover;
 
 	void Awake() {
 		photonView = GetComponent<PhotonView> ();
@@ -34,24 +52,32 @@ public class Lover : MonoBehaviour {
 			} else if (Input.GetMouseButtonUp (0)) {
 				exitKiss ();
 			}
+
+			updateKissMutual ();
 		}
 	}
 
-	void setMouseLooksTo (Vector4 mouseBounds) {
+	// shouldClamp: if true, then x axis will clamp
+	// NOTE: right now, the clamping is relative only on the x, clamping is still absolute on y
+	// maybe change that? for now it's a-okay
+	void setMouseLooksTo (Vector4 mouseBounds, bool shouldClamp) {
 		foreach (MouseLook m in mouseLooks) {
 			if (m.axes == MouseLook.RotationAxes.MouseX) {
-				m.minimumX = mouseBounds.x;
-				m.maximumX = mouseBounds.y;
+				m.minimumX = m.currRotationX + mouseBounds.x;
+				m.maximumX = m.currRotationX + mouseBounds.y;
 			}
 			if (m.axes == MouseLook.RotationAxes.MouseY) {
 				m.minimumY = mouseBounds.z;
 				m.maximumY = mouseBounds.w;
 			}
+
+			m.clampX = shouldClamp; // set whether or not mouse x should clamp
 		}
 	}
 
 	void enterKiss() { // personal
-		setMouseLooksTo (kissingBounds); // clamp mouse a bit
+		setMouseLooksTo (kissingBounds, true); // clamp mouse a bit
+		GetComponent<CharacterMotor> ().canControl = false;
 
 		photonView.RPC("enterKissRPC", PhotonTargets.AllBuffered);
 	}
@@ -59,14 +85,15 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void enterKissRPC() {
 		print (gameObject.name + " has entered a kiss!");
-		isKissing = true;
+		m_isKissing = true;
 		// [] stop this player from being able to move around
 		sfx_kiss.Play (); // play looping kissing sound
 
 	}
 
 	void exitKiss() { // personal
-		setMouseLooksTo (originalBounds); // unclamp mouse
+		setMouseLooksTo (originalBounds, false); // unclamp mouse
+		GetComponent<CharacterMotor> ().canControl = true;
 
 		photonView.RPC("exitKissRPC", PhotonTargets.AllBuffered);
 	}
@@ -74,7 +101,65 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void exitKissRPC() {
 		print (gameObject.name + " has exited a kiss!");
-		isKissing = false;
+		m_isKissing = false;
 		sfx_kiss.Stop (); // stop looping kissing sound
+	}
+
+	void updateKissMutual() {
+		if (m_isKissingMutual) {
+			networkView.RPC ("updateKissMutualRPC", RPCMode.AllBuffered);
+			/* i have a suspicion that it's stupid do call an rpc in update
+			 * what's the better way to do this
+			 * idunno */
+		}
+	}
+
+	[RPC]
+	void updateKissMutualRPC() {
+		durationOfCurrentMutualKiss += Time.deltaTime; // keep track of how long the kiss has been going
+		m_score += Constants.s.rateOfKiss * Time.deltaTime; // update score according to the kiss
+	}
+
+	/* wait should this be an rpc or what? */
+	// this is going to be called by a collider in ONE person's simulation 
+	public void enterKissMutual(Lover loverImKissing) {
+		if (m_isKissingMutual) {
+			print ("i'm already kissing mutual!");
+			return;
+		}
+		// [x] track lover you're currently kissing
+		currentlyKissingThisLover = loverImKissing;
+		// [x] play new song/sound or watevs
+		sfx_kissMutualMusic.Play ();
+
+		// [] change screen to look all kissy and stuff
+
+		photonView.RPC ("enterKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
+	}
+
+	void enterKissMutualRPC() {
+		m_isKissingMutual = true; // set is kissing mutual to true
+	}
+
+	// this is going to be called by a collider in ONE person's simulation
+	public void exitKissMutual() {
+		if (!m_isKissingMutual) {
+			print ("i'm already not kissing mutual!");
+			return;
+		}
+		photonView.RPC ("exitKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
+
+		// [x] stop song
+		sfx_kissMutualMusic.Pause ();
+		// [] reset screen
+
+		currentlyKissingThisLover.exitKissMutual (); // exit the kiss of the other lover
+													// this won't cause a loop because of the if-statement at the start
+		// [x] set currently-kissing-lover to null
+		currentlyKissingThisLover = null;
+	}
+
+	void exitKissMutualRPC() {
+		m_isKissingMutual = false;
 	}
 }

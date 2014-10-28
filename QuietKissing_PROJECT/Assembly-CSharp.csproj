@@ -132,7 +132,10 @@
      <Compile Include="Assets\_IMPORT\Photon Unity Networking\UtilityScripts\TestDontDestroyOnLoad.cs" />
      <Compile Include="Assets\_IMPORT\Photon Unity Networking\UtilityScripts\TimeKeeper.cs" />
      <Compile Include="Assets\_IMPORT\ProCore\Prototype\Scripts\RebuildMeshOnWake.cs" />
+     <Compile Include="Assets\_Scripts\Constants.cs" />
+     <Compile Include="Assets\_Scripts\KissBox.cs" />
      <Compile Include="Assets\_Scripts\Lover.cs" />
+     <Compile Include="Assets\_Scripts\MouseLook.cs" />
      <Compile Include="Assets\_Scripts\NetworkMovement.cs" />
      <Compile Include="Assets\_Scripts\NetworkingInitialization.cs" />
      <Compile Include="Assets\_Scripts\PlayerManager.cs" />
@@ -174,8 +177,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{70B3C6E7-C686-9305-64C8-414E5AD6093D}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
       <Project>{05E1B217-4A60-0A4B-9767-A1F674CB0073}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>

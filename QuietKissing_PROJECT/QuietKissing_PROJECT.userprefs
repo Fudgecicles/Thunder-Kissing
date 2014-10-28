@@ -1,9 +1,9 @@
 ﻿<Properties>
-  <MonoDevelop.Ide.Workspace />
-  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\GamesToMake\Unity\WordWizard_TEMP\WordWizard_PROJECT\Assets\_Scripts\WordWizard\WordWizard.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\Lover.cs">
     <Files>
-      <File FileName="..\..\..\GamesToMake\Unity\WordWizard_TEMP\WordWizard_PROJECT\Assets\_Scripts\UsefulThings\Useful.cs" Line="7" Column="32" />
-      <File FileName="..\..\..\GamesToMake\Unity\WordWizard_TEMP\WordWizard_PROJECT\Assets\_Scripts\WordWizard\WordWizard.cs" Line="212" Column="7" />
+      <File FileName="Assets\_Scripts\Lover.cs" Line="140" Column="29" />
+      <File FileName="Assets\_Scripts\KissBox.cs" Line="8" Column="34" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
