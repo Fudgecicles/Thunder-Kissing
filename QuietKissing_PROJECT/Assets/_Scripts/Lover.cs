@@ -9,6 +9,7 @@ public class Lover : MonoBehaviour {
 	private Vector4 originalBounds;
 	private MouseLook[] mouseLooks;
 	private PhotonView photonView;
+    public bool isLover = false;
 
 	private bool m_isKissing = false;
 	public bool IsKissing {
@@ -46,15 +47,22 @@ public class Lover : MonoBehaviour {
 	}
 	
 	void Update () {
-		if (photonView.isMine) {
-			if (Input.GetMouseButtonDown(0)) {
-				enterKiss ();
-			} else if (Input.GetMouseButtonUp (0)) {
-				exitKiss ();
-			}
+        if (isLover)
+        {
+            if (photonView.isMine)
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    enterKiss();
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
+                    exitKiss();
+                }
 
-			updateKissMutual ();
-		}
+                updateKissMutual();
+            }
+        }
 	}
 
 	// shouldClamp: if true, then x axis will clamp

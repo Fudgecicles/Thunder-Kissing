@@ -4,8 +4,8 @@ using System.Collections;
 public class Arrow : Photon.MonoBehaviour {
 
     public bool stuck = false;
-    int id;
-    float maxSpeed = 5;
+    public int id;
+    float maxSpeed = 10;
 
 	// Use this for initialization
 	void Start () {
@@ -18,7 +18,7 @@ public class Arrow : Photon.MonoBehaviour {
         {
             rigidbody.velocity += 5f*Time.deltaTime *Vector3.down;
         }
-
+        
         RaycastHit info;
         if (Physics.Raycast(transform.position, rigidbody.velocity,out info, rigidbody.velocity.magnitude*Time.deltaTime )){
             if (info.transform.tag == "Floor")
@@ -49,7 +49,6 @@ public class Arrow : Photon.MonoBehaviour {
     }
     public void setSpeed(float power, int id)
     {
-        Debug.Log(power);
         photonView.RPC("setSpeedRPC", PhotonTargets.AllBuffered, power, id);
     }
 

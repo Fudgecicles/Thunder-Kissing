@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Cupid : Photon.MonoBehaviour {
 
-    int numArrows = 3;
+    public int numArrows = 3;
     float power=1;
     GameObject shotLocation;
     List<GameObject> arrows = new List<GameObject>();
@@ -51,6 +51,7 @@ public class Cupid : Photon.MonoBehaviour {
         GameObject arrow;
         arrow =  PhotonNetwork.Instantiate("Prefabs/Arrow", shotLocation.transform.position, camera.transform.rotation, 0);
         arrow.GetComponent<Arrow>().setSpeed(power, PhotonNetwork.player.ID);
+        arrow.GetComponent<Arrow>().id = PhotonNetwork.player.ID;
         power = 1;
         --numArrows;
     }
