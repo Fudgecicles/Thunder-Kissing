@@ -12,7 +12,21 @@ public class KissBox : MonoBehaviour {
 		}
 	}
 
+	/*void Update() {
+		mackinHard = false;
+	}
+
+	private bool mackinHard = false;
+
+	IEnumerator OnTriggerNotStay_Fucker() {
+		while (true) {
+			mackinHard = false;
+			yield return new WaitForFixedUpdate ();
+		}
+	}*/
+
 	void OnTriggerEnter (Collider other) {
+		//mackinHard = true;
 		Lover otherLover = other.GetComponent<Lover> ();
 		if (otherLover != null) {
 			if (myLover.IsKissing && otherLover.IsKissing) {

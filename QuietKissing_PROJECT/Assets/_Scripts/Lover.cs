@@ -137,6 +137,7 @@ public class Lover : MonoBehaviour {
 		photonView.RPC ("enterKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
 	}
 
+	[RPC]
 	void enterKissMutualRPC() {
 		m_isKissingMutual = true; // set is kissing mutual to true
 	}
@@ -159,6 +160,7 @@ public class Lover : MonoBehaviour {
 		currentlyKissingThisLover = null;
 	}
 
+	[RPC]
 	void exitKissMutualRPC() {
 		m_isKissingMutual = false;
 	}
