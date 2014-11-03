@@ -130,7 +130,7 @@ public class Lover : MonoBehaviour {
 		// [x] track lover you're currently kissing
 		currentlyKissingThisLover = loverImKissing;
 		// [x] play new song/sound or watevs
-		sfx_kissMutualMusic.Play ();
+		//sfx_kissMutualMusic.Play ();
 
 		// [] change screen to look all kissy and stuff
 
@@ -140,6 +140,7 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void enterKissMutualRPC() {
 		m_isKissingMutual = true; // set is kissing mutual to true
+		if (photonView.isMine) sfx_kissMutualMusic.Play ();
 	}
 
 	// this is going to be called by a collider in ONE person's simulation
@@ -151,7 +152,7 @@ public class Lover : MonoBehaviour {
 		photonView.RPC ("exitKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
 
 		// [x] stop song
-		sfx_kissMutualMusic.Pause ();
+		//sfx_kissMutualMusic.Pause ();
 		// [] reset screen
 
 		currentlyKissingThisLover.exitKissMutual (); // exit the kiss of the other lover
@@ -163,5 +164,6 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void exitKissMutualRPC() {
 		m_isKissingMutual = false;
+		if (photonView.isMine) sfx_kissMutualMusic.Pause ();
 	}
 }
