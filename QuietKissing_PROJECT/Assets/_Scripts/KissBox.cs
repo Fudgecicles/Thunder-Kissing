@@ -28,7 +28,7 @@ public class KissBox : MonoBehaviour {
 	void OnTriggerStay (Collider other) {
 		Lover otherLover = other.GetComponent<Lover> ();
 		if (otherLover != null) {
-			if (myLover.IsKissingMutual) { // make sure that y'all aren't already macking
+			if (!myLover.IsKissingMutual) { // make sure that y'all aren't already macking
 				if (myLover.IsKissing && otherLover.IsKissing) {
 					myLover.enterKissMutual(otherLover);
 					otherLover.enterKissMutual (myLover);
