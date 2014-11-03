@@ -26,14 +26,17 @@ public class KissBox : MonoBehaviour {
 	}*/
 
 	void Update() {
-		if (!myLover.currentlyKissingThisLover.IsKissingMutual) {
-			myLover.exitKissMutual();
+		if (myLover.currentlyKissingThisLover != null) {
+			if (!myLover.currentlyKissingThisLover.IsKissing) {
+				myLover.exitKissMutual();
+			}
 		}
 	}
 
 	void OnTriggerEnter (Collider other) {
 		//mackinHard = true;
 		Lover otherLover = other.GetComponent<Lover> ();
+		if (otherLover == myLover) return; // can't kiss myself on the mouth afterall!
 		if (otherLover != null) {
 			if (myLover.IsKissing && otherLover.IsKissing) {
 				myLover.enterKissMutual(otherLover);
@@ -47,6 +50,7 @@ public class KissBox : MonoBehaviour {
 	 * but they haven't actually kissed yet */
 	void OnTriggerStay (Collider other) {
 		Lover otherLover = other.GetComponent<Lover> ();
+		if (otherLover == myLover) return; // can't kiss myself on the mouth afterall!
 		if (otherLover != null) {
 			if (!myLover.IsKissingMutual) { // make sure that y'all aren't already macking
 				if (myLover.IsKissing && otherLover.IsKissing) {

@@ -10,7 +10,7 @@ public class Lover : MonoBehaviour {
 	private MouseLook[] mouseLooks;
 	private PhotonView photonView;
 
-	private bool m_isKissing;
+	private bool m_isKissing = false;
 	public bool IsKissing {
 		get { return m_isKissing; }
 	}
@@ -20,7 +20,7 @@ public class Lover : MonoBehaviour {
 		get { return (int)m_score; }
 	}
 
-	private bool m_isKissingMutual;
+	private bool m_isKissingMutual = false;
 	public bool IsKissingMutual {
 		get { return m_isKissingMutual; }
 	}
@@ -107,7 +107,7 @@ public class Lover : MonoBehaviour {
 
 	void updateKissMutual() {
 		if (m_isKissingMutual) {
-			networkView.RPC ("updateKissMutualRPC", RPCMode.AllBuffered);
+			photonView.RPC ("updateKissMutualRPC", PhotonTargets.AllBuffered);
 			/* i have a suspicion that it's stupid do call an rpc in update
 			 * what's the better way to do this
 			 * idunno */
