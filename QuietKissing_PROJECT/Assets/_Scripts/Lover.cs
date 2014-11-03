@@ -26,7 +26,7 @@ public class Lover : MonoBehaviour {
 	}
 
 	private float durationOfCurrentMutualKiss = 0;
-	private Lover currentlyKissingThisLover;
+	public Lover currentlyKissingThisLover;
 
 	void Awake() {
 		photonView = GetComponent<PhotonView> ();

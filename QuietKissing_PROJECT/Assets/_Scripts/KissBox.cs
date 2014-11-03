@@ -25,6 +25,12 @@ public class KissBox : MonoBehaviour {
 		}
 	}*/
 
+	void Update() {
+		if (!myLover.currentlyKissingThisLover.IsKissingMutual) {
+			myLover.exitKissMutual();
+		}
+	}
+
 	void OnTriggerEnter (Collider other) {
 		//mackinHard = true;
 		Lover otherLover = other.GetComponent<Lover> ();
