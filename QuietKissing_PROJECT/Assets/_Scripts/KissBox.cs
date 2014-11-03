@@ -31,6 +31,12 @@ public class KissBox : MonoBehaviour {
 				myLover.exitKissMutual();
 			}
 		}
+
+		if (myLover.currentlyKissingThisLover == null) {
+			if (myLover.IsKissingMutual) {
+				myLover.exitKissMutual ();
+			}
+		}
 	}
 
 	void OnTriggerEnter (Collider other) {
