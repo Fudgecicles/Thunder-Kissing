@@ -2,6 +2,10 @@
 using System.Collections;
 
 public class Lover : MonoBehaviour {
+	public Renderer myMeshRenderer;
+	public Material mat_default;
+	public Material mat_kissing;
+
 	public AudioSource sfx_kiss; // looping kissing noise that plays while kissing
 	public AudioSource sfx_kissMutualMusic; // looping kissmutual music that plays while kissing mutually
 	public Vector4 kissingBounds; // clamping of the mouse look while kissing (x:min/max, y:min/max)
@@ -96,7 +100,7 @@ public class Lover : MonoBehaviour {
 		m_isKissing = true;
 		// [] stop this player from being able to move around
 		sfx_kiss.Play (); // play looping kissing sound
-
+		myMeshRenderer.material = mat_kissing;
 	}
 
 	void exitKiss() { // personal
@@ -111,6 +115,7 @@ public class Lover : MonoBehaviour {
 		print (gameObject.name + " has exited a kiss!");
 		m_isKissing = false;
 		sfx_kiss.Stop (); // stop looping kissing sound
+		myMeshRenderer.material = mat_default;
 	}
 
 	void updateKissMutual() {

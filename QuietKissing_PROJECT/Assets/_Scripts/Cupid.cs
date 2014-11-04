@@ -2,6 +2,10 @@
 using System.Collections;
 using System.Collections.Generic;
 
+// by: steven
+// my 1+only
+// 40
+//haybpperydirhty day
 public class Cupid : Photon.MonoBehaviour {
 
     public int numArrows = 3;
@@ -9,14 +13,12 @@ public class Cupid : Photon.MonoBehaviour {
     GameObject shotLocation;
     List<GameObject> arrows = new List<GameObject>();
     GameObject camera;
-
-	// Use this for initialization
+	
 	void Start () {
         shotLocation = transform.Find("shotLocation").gameObject;
         camera = transform.FindChild("Main Camera").gameObject;
 	}
-	
-	// Update is called once per frame
+
 	void Update () {
         if (photonView.isMine)
         {
