@@ -3,6 +3,8 @@ using System.Collections;
 
 public class NetworkingInitialization : MonoBehaviour {
 
+    NetworkVariables variables;
+    GameObject monster;
 	// Use this for initialization
 	void Start () {
         PhotonNetwork.ConnectUsingSettings(".1");
@@ -27,18 +29,34 @@ public class NetworkingInitialization : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-        NetworkVariables variables;
         if (PhotonNetwork.isMasterClient)
         {
             variables = PhotonNetwork.Instantiate("Prefabs/NetworkVariables", Vector3.zero, Quaternion.identity, 0).GetComponent<NetworkVariables>();
         }
-        else
+        monster = PhotonNetwork.Instantiate("Prefabs/prf_Cupid", Vector3.zero, Quaternion.identity, 0);
+
+        CharacterController controller = monster.GetComponent<CharacterController>();
+        controller.enabled = true;
+        Camera cam = monster.GetComponentInChildren<Camera>();
+        cam.enabled = true;
+        FPSInputController input = monster.GetComponent<FPSInputController>();
+        input.enabled = true;
+        MouseLook look = monster.GetComponent<MouseLook>();
+        look.enabled = true;
+        AudioListener listener = monster.GetComponentInChildren<AudioListener>();
+        listener.enabled = true;
+        StartCoroutine(dumbFunction());
+	}
+
+    IEnumerator dumbFunction()
+    {
+        yield return null;
+        if (!PhotonNetwork.isMasterClient)
         {
             variables = GameObject.Find("NetworkVariables(Clone)").GetComponent<NetworkVariables>();
         }
-        GameObject monster = PhotonNetwork.Instantiate("Prefabs/prf_Cupid", Vector3.zero, Quaternion.identity, 0);
         if (variables.lovers < 2 && variables.cupids < 2)
-        {   
+        {
             int rand = Random.Range(0, 2);
             Debug.Log(rand);
             if (rand == 0)
@@ -71,18 +89,8 @@ public class NetworkingInitialization : MonoBehaviour {
         {
 
         }
-        CharacterController controller = monster.GetComponent<CharacterController>();
-        controller.enabled = true;
-        Camera cam = monster.GetComponentInChildren<Camera>();
-        cam.enabled = true;
-        FPSInputController input = monster.GetComponent<FPSInputController>();
-        input.enabled = true;
-        MouseLook look = monster.GetComponent<MouseLook>();
-        look.enabled = true;
-        AudioListener listener = monster.GetComponentInChildren<AudioListener>();
-        listener.enabled = true;
-	}
-
+    }
+    
     void OnGUI()
     {
         GUILayout.Label(PhotonNetwork.connectionStateDetailed.ToString());
