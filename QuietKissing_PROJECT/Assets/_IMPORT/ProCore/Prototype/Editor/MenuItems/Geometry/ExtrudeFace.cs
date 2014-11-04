@@ -1,4 +1,5 @@
 #define PROTOTYPE
+#define PROTOTYPE
 #if UNITY_4_3 || UNITY_4_3_0 || UNITY_4_3_1
 #define UNITY_4_3
 #elif UNITY_4_0 || UNITY_4_0_1 || UNITY_4_1 || UNITY_4_2

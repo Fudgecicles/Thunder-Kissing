@@ -1,4 +1,5 @@
 #define PROTOTYPE
+#define PROTOTYPE
 /**
 *  @ Matt1988
 *  This extension was built by @Matt1988
