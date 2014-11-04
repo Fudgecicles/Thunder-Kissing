@@ -19,6 +19,8 @@ var inputMoveDirection : Vector3 = Vector3.zero;
 @System.NonSerialized
 var inputJump : boolean = false;
 
+var numJump: int = 4;
+
 class CharacterMotorMovement {
 	// The maximum horizontal speed when moving
 	var maxForwardSpeed : float = 10.0;
@@ -288,7 +290,8 @@ private function UpdateFunction () {
 	}
 	// We were not grounded but just landed on something
 	else if (!grounded && IsGroundedTest()) {
-		grounded = true;
+	    grounded = true;
+	    numJump = 4;
 		jumping.jumping = false;
 		SubtractNewPlatformVelocity();
 		
@@ -416,13 +419,18 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 		velocity.y = Mathf.Max (velocity.y, -movement.maxFallSpeed);
 	}
 		
-	if (grounded) {
+	if (numJump>0) {
 		// Jump only if the jump button was pressed down in the last 0.2 seconds.
 		// We use this check instead of checking if it's pressed down right now
 		// because players will often try to jump in the exact moment when hitting the ground after a jump
 		// and if they hit the button a fraction of a second too soon and no new jump happens as a consequence,
-		// it's confusing and it feels like the game is buggy.
-		if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2)) {
+	    // it's confusing and it feels like the game is buggy.
+	    if(Input.GetKeyDown(KeyCode.Space)){
+	        --numJump;
+	        Debug.Log(numJump);
+	    }
+	    if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2)) {
+
 			grounded = false;
 			jumping.jumping = true;
 			jumping.lastStartTime = Time.time;
@@ -449,6 +457,7 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 			}
 			
 			SendMessage("OnJump", SendMessageOptions.DontRequireReceiver);
+
 		}
 		else {
 			jumping.holdingJumpButton = false;

@@ -27,8 +27,45 @@ public class NetworkingInitialization : MonoBehaviour {
 
     void OnJoinedRoom()
     {
-
+        NetworkVariables variables;
+        if (PhotonNetwork.isMasterClient)
+        {
+            variables = PhotonNetwork.Instantiate("Prefabs/NetworkVariables", Vector3.zero, Quaternion.identity, 0).GetComponent<NetworkVariables>();
+        }
+        else
+        {
+            variables = GameObject.Find("NetworkVariables(Clone)").GetComponent<NetworkVariables>();
+        }
         GameObject monster = PhotonNetwork.Instantiate("Prefabs/prf_Cupid", Vector3.zero, Quaternion.identity, 0);
+        if (variables.lovers < 2 && variables.cupids < 2)
+        {   
+            int rand = Random.Range(0, 2);
+            Debug.Log(rand);
+            if (rand == 0)
+            {
+                monster.GetComponent<Cupid>().enabled = true;
+                variables.incrementCupids();
+            }
+            else
+            {
+                monster.GetComponent<Lover>().isLover = true;
+                variables.incrementLovers();
+            }
+        }
+        else if (variables.lovers < 2)
+        {
+            monster.GetComponent<Lover>().isLover = true;
+            variables.incrementLovers();
+        }
+        else if (variables.cupids < 2)
+        {
+            monster.GetComponent<Cupid>().enabled = true;
+            variables.incrementCupids();
+        }
+        else
+        {
+
+        }
         CharacterController controller = monster.GetComponent<CharacterController>();
         controller.enabled = true;
         Camera cam = monster.GetComponentInChildren<Camera>();
