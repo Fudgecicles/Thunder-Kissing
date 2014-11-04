@@ -13,7 +13,9 @@ public class Lover : MonoBehaviour {
 	private Vector4 originalBounds;
 	private MouseLook[] mouseLooks;
 	private PhotonView photonView;
+    private GameObject particles;
     public bool isLover = false;
+
 
 	private bool m_isKissing = false;
 	public bool IsKissing {
@@ -148,6 +150,7 @@ public class Lover : MonoBehaviour {
 		// [] change screen to look all kissy and stuff
 
 		photonView.RPC ("enterKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
+        particles = (GameObject)Instantiate(Resources.Load("prf_party_love"), transform.position, Quaternion.identity);
 	}
 
 	[RPC]
@@ -172,6 +175,7 @@ public class Lover : MonoBehaviour {
 													// this won't cause a loop because of the if-statement at the start
 		// [x] set currently-kissing-lover to null
 		currentlyKissingThisLover = null;
+        Destroy(particles);
 	}
 
 	[RPC]
