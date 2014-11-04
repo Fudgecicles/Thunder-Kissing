@@ -5,10 +5,12 @@ public class PlayerManager : Photon.MonoBehaviour {
 
     Cupid cupidScript;
     Lover loverScript;
+    CharacterMotor motor;
     bool cupid = true;
 
 	// Use this for initialization
 	void Start () {
+        motor = GetComponent<CharacterMotor>();
         cupidScript = GetComponent<Cupid>();
         loverScript = GetComponent<Lover>();
 	}
@@ -58,6 +60,7 @@ public class PlayerManager : Photon.MonoBehaviour {
         {
             cupidScript.enabled = false;
             loverScript.isLover = true;
+            motor.cupid = false;
         }
     }
 
@@ -68,6 +71,7 @@ public class PlayerManager : Photon.MonoBehaviour {
             cupidScript.enabled = true;
             loverScript.isLover = false;
             cupidScript.numArrows = 3;
+            motor.cupid = true;
         }
     }
 }

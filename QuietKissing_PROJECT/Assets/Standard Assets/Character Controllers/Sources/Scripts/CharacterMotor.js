@@ -20,6 +20,7 @@ var inputMoveDirection : Vector3 = Vector3.zero;
 var inputJump : boolean = false;
 
 var numJump: int = 4;
+var cupid: boolean = false;
 
 class CharacterMotorMovement {
 	// The maximum horizontal speed when moving
@@ -418,52 +419,98 @@ private function ApplyGravityAndJumping (velocity : Vector3) {
 		// Make sure we don't fall any faster than maxFallSpeed. This gives our character a terminal velocity.
 		velocity.y = Mathf.Max (velocity.y, -movement.maxFallSpeed);
 	}
-		
-	if (numJump>0) {
-		// Jump only if the jump button was pressed down in the last 0.2 seconds.
-		// We use this check instead of checking if it's pressed down right now
-		// because players will often try to jump in the exact moment when hitting the ground after a jump
-		// and if they hit the button a fraction of a second too soon and no new jump happens as a consequence,
-	    // it's confusing and it feels like the game is buggy.
-	    if(Input.GetKeyDown(KeyCode.Space)){
-	        --numJump;
-	        Debug.Log(numJump);
+	if(cupid){
+	    if (numJump>0) {
+	        // Jump only if the jump button was pressed down in the last 0.2 seconds.
+	        // We use this check instead of checking if it's pressed down right now
+	        // because players will often try to jump in the exact moment when hitting the ground after a jump
+	        // and if they hit the button a fraction of a second too soon and no new jump happens as a consequence,
+	        // it's confusing and it feels like the game is buggy.
+	        if(Input.GetKeyDown(KeyCode.Space)){
+	            --numJump;
+	            Debug.Log(numJump);
+	        }
+	        if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2)) {
+
+	            grounded = false;
+	            jumping.jumping = true;
+	            jumping.lastStartTime = Time.time;
+	            jumping.lastButtonDownTime = -100;
+	            jumping.holdingJumpButton = true;
+			
+	            // Calculate the jumping direction
+	            if (TooSteep())
+	                jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.steepPerpAmount);
+	            else
+	                jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.perpAmount);
+			
+	            // Apply the jumping force to the velocity. Cancel any vertical velocity first.
+	            velocity.y = 0;
+	            velocity += jumping.jumpDir * CalculateJumpVerticalSpeed (jumping.baseHeight);
+			
+	            // Apply inertia from platform
+	            if (movingPlatform.enabled &&
+                    (movingPlatform.movementTransfer == MovementTransferOnJump.InitTransfer ||
+                    movingPlatform.movementTransfer == MovementTransferOnJump.PermaTransfer)
+                ) {
+	                movement.frameVelocity = movingPlatform.platformVelocity;
+	                velocity += movingPlatform.platformVelocity;
+	            }
+			
+	            SendMessage("OnJump", SendMessageOptions.DontRequireReceiver);
+
+	        }
+	        else {
+	            jumping.holdingJumpButton = false;
+	        }
 	    }
-	    if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2)) {
-
-			grounded = false;
-			jumping.jumping = true;
-			jumping.lastStartTime = Time.time;
-			jumping.lastButtonDownTime = -100;
-			jumping.holdingJumpButton = true;
-			
-			// Calculate the jumping direction
-			if (TooSteep())
-				jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.steepPerpAmount);
-			else
-				jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.perpAmount);
-			
-			// Apply the jumping force to the velocity. Cancel any vertical velocity first.
-			velocity.y = 0;
-			velocity += jumping.jumpDir * CalculateJumpVerticalSpeed (jumping.baseHeight);
-			
-			// Apply inertia from platform
-			if (movingPlatform.enabled &&
-				(movingPlatform.movementTransfer == MovementTransferOnJump.InitTransfer ||
-				movingPlatform.movementTransfer == MovementTransferOnJump.PermaTransfer)
-			) {
-				movement.frameVelocity = movingPlatform.platformVelocity;
-				velocity += movingPlatform.platformVelocity;
-			}
-			
-			SendMessage("OnJump", SendMessageOptions.DontRequireReceiver);
-
-		}
-		else {
-			jumping.holdingJumpButton = false;
-		}
 	}
-	
+	else{
+	    if (grounded) {
+	        // Jump only if the jump button was pressed down in the last 0.2 seconds.
+	        // We use this check instead of checking if it's pressed down right now
+	        // because players will often try to jump in the exact moment when hitting the ground after a jump
+	        // and if they hit the button a fraction of a second too soon and no new jump happens as a consequence,
+	        // it's confusing and it feels like the game is buggy.
+	        if(Input.GetKeyDown(KeyCode.Space)){
+	            --numJump;
+	            Debug.Log(numJump);
+	        }
+	        if (jumping.enabled && canControl && (Time.time - jumping.lastButtonDownTime < 0.2)) {
+
+	            grounded = false;
+	            jumping.jumping = true;
+	            jumping.lastStartTime = Time.time;
+	            jumping.lastButtonDownTime = -100;
+	            jumping.holdingJumpButton = true;
+			
+	            // Calculate the jumping direction
+	            if (TooSteep())
+	                jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.steepPerpAmount);
+	            else
+	                jumping.jumpDir = Vector3.Slerp(Vector3.up, groundNormal, jumping.perpAmount);
+			
+	            // Apply the jumping force to the velocity. Cancel any vertical velocity first.
+	            velocity.y = 0;
+	            velocity += jumping.jumpDir * CalculateJumpVerticalSpeed (jumping.baseHeight);
+			
+	            // Apply inertia from platform
+	            if (movingPlatform.enabled &&
+                    (movingPlatform.movementTransfer == MovementTransferOnJump.InitTransfer ||
+                    movingPlatform.movementTransfer == MovementTransferOnJump.PermaTransfer)
+                ) {
+	                movement.frameVelocity = movingPlatform.platformVelocity;
+	                velocity += movingPlatform.platformVelocity;
+	            }
+			
+	            SendMessage("OnJump", SendMessageOptions.DontRequireReceiver);
+
+	        }
+	        else {
+	            jumping.holdingJumpButton = false;
+	        }
+	    }
+	}
 	return velocity;
 }
 

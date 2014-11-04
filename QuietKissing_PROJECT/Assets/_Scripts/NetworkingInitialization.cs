@@ -45,22 +45,27 @@ public class NetworkingInitialization : MonoBehaviour {
             {
                 monster.GetComponent<Cupid>().enabled = true;
                 variables.incrementCupids();
+                monster.GetComponent<CharacterMotor>().cupid = true;
             }
             else
             {
                 monster.GetComponent<Lover>().isLover = true;
                 variables.incrementLovers();
+                monster.GetComponent<CharacterMotor>().cupid = false;
             }
         }
         else if (variables.lovers < 2)
         {
             monster.GetComponent<Lover>().isLover = true;
             variables.incrementLovers();
+            monster.GetComponent<CharacterMotor>().cupid = false;
+
         }
         else if (variables.cupids < 2)
         {
             monster.GetComponent<Cupid>().enabled = true;
             variables.incrementCupids();
+            monster.GetComponent<CharacterMotor>().cupid = true;
         }
         else
         {
