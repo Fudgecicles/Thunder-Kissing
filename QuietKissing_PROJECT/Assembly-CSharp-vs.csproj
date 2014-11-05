@@ -150,6 +150,7 @@
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\_IMPORT\ProCore\Shared\About\README.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\UnlitColor.shader" />

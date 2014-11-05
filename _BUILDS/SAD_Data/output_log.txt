@@ -16,6 +16,7 @@ Direct3D:
     Vendor:   Intel
     VRAM:     1988 MB
 Begin MonoManager ReloadAssembly
+<<<<<<< HEAD
 Platform assembly: C:\Sites\Thunder-Kissing\_BUILDS\SAD_Data\Managed\UnityEngine.dll (this message is harmless)
 Loading C:\Sites\Thunder-Kissing\_BUILDS\SAD_Data\Managed\UnityEngine.dll into Unity Child Domain
 Platform assembly: C:\Sites\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Assembly-CSharp.dll (this message is harmless)
@@ -41,6 +42,35 @@ Platform assembly: C:\Sites\Thunder-Kissing\_BUILDS\SAD_Data\Managed\System.dll 
 WARNING: Shader Unsupported: 'Toon/Basic Outline' - Pass 'OUTLINE' shader state not supported
 Platform assembly: C:\Sites\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Boo.Lang.dll (this message is harmless)
 0
+=======
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Assembly-UnityScript-firstpass.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Assembly-UnityScript-firstpass.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Photon3Unity3D.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Photon3Unity3D.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProBuilderCore.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProBuilderCore.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProBuilderMeshOps.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProBuilderMeshOps.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProCore.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\ProCore.dll into Unity Child Domain
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\SixBySeven.dll (this message is harmless)
+Loading C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\SixBySeven.dll into Unity Child Domain
+- Completed reload, in  0.117 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\System.Core.dll (this message is harmless)
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\System.dll (this message is harmless)
+prf_Cupid(Clone) has entered a kiss!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+prf_Cupid(Clone) has exited a kiss!
+>>>>>>> 47fcc6bff9ce3cd48aa5b1c37a5db76d49a8f502
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -52,7 +82,15 @@ prf_Cupid(Clone) has exited a kiss!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
 Received RPC "playerHit" for viewID 1 but this PhotonView does not exist! Was remote PV. Remote called.
+=======
+prf_Cupid(Clone) has entered a kiss!
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+prf_Cupid(Clone) has exited a kiss!
+>>>>>>> 47fcc6bff9ce3cd48aa5b1c37a5db76d49a8f502
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
@@ -64,3 +102,19 @@ prf_Cupid(Clone) has exited a kiss!
  
 (Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
 
+<<<<<<< HEAD
+=======
+Platform assembly: C:\Users\Wedgiebee\Documents\GitHub\Thunder-Kissing\_BUILDS\SAD_Data\Managed\Boo.Lang.dll (this message is harmless)
+Received OnSerialization for view ID 1. We have no such PhotonView! Ignored this if you're leaving a room. State: Joined
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+0
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+Received OnSerialization for view ID 1. We have no such PhotonView! Ignored this if you're leaving a room. State: Joined
+ 
+(Filename: C:/BuildAgent/work/d63dfc6385190b60/artifacts/StandalonePlayerGenerated/UnityEngineDebug.cpp Line: 49)
+
+>>>>>>> 47fcc6bff9ce3cd48aa5b1c37a5db76d49a8f502
