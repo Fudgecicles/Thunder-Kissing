@@ -1,0 +1,165 @@
+fileFormatVersion: 2
+guid: 84ec6a7573dc309469c15478bad59799
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: audrey01
+    100002: audrey02
+    100004: audrey03
+    100006: audrey04
+    100008: audrey05
+    100010: audrey06
+    100012: audrey07
+    100014: audrey08
+    100016: audrey09
+    100018: Camera01
+    100020: Camera01.Target
+    100022: ceramica
+    100024: cromo
+    100026: Cylinder02
+    100028: Line01
+    100030: Line02
+    100032: Line03
+    100034: Line04
+    100036: Object02
+    100038: Particle View 01
+    100040: Plane01
+    100042: Plane02
+    100044: Plane18
+    100046: Plane19
+    100048: Rectangle02
+    100050: VRayLight01
+    100052: //RootNode
+    400000: audrey01
+    400002: audrey02
+    400004: audrey03
+    400006: audrey04
+    400008: audrey05
+    400010: audrey06
+    400012: audrey07
+    400014: audrey08
+    400016: audrey09
+    400018: Camera01
+    400020: Camera01.Target
+    400022: ceramica
+    400024: cromo
+    400026: Cylinder02
+    400028: Line01
+    400030: Line02
+    400032: Line03
+    400034: Line04
+    400036: Object02
+    400038: Particle View 01
+    400040: Plane01
+    400042: Plane02
+    400044: Plane18
+    400046: Plane19
+    400048: Rectangle02
+    400050: VRayLight01
+    400052: //RootNode
+    2300000: audrey01
+    2300002: audrey02
+    2300004: audrey03
+    2300006: audrey04
+    2300008: audrey05
+    2300010: audrey06
+    2300012: audrey07
+    2300014: audrey08
+    2300016: audrey09
+    2300018: ceramica
+    2300020: cromo
+    2300022: Cylinder02
+    2300024: Object02
+    2300026: Plane01
+    2300028: Plane02
+    2300030: Plane18
+    2300032: Rectangle02
+    3300000: audrey01
+    3300002: audrey02
+    3300004: audrey03
+    3300006: audrey04
+    3300008: audrey05
+    3300010: audrey06
+    3300012: audrey07
+    3300014: audrey08
+    3300016: audrey09
+    3300018: ceramica
+    3300020: cromo
+    3300022: Cylinder02
+    3300024: Object02
+    3300026: Plane01
+    3300028: Plane02
+    3300030: Plane18
+    3300032: Rectangle02
+    4300000: Plane01
+    4300002: Plane02
+    4300004: Rectangle02
+    4300006: Object02
+    4300008: Cylinder02
+    4300010: Plane18
+    4300012: audrey05
+    4300014: audrey04
+    4300016: audrey03
+    4300018: audrey08
+    4300020: audrey07
+    4300022: audrey02
+    4300024: audrey01
+    4300026: audrey06
+    4300028: cromo
+    4300030: ceramica
+    4300032: audrey09
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .00999999978
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
