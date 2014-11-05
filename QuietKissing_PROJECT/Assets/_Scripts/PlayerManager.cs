@@ -13,6 +13,9 @@ public class PlayerManager : Photon.MonoBehaviour {
         motor = GetComponent<CharacterMotor>();
         cupidScript = GetComponent<Cupid>();
         loverScript = GetComponent<Lover>();
+
+		Screen.lockCursor = true;
+		//Screen.showCursor = false;
 	}
 	
 	// Update is called once per frame
