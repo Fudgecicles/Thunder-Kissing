@@ -82,6 +82,7 @@
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\_IMPORT\ProCore\Shared\About\README.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\UnlitColor.shader" />
@@ -121,8 +122,6 @@
  </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{05E1B217-4A60-0A4B-9767-A1F674CB0073}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{2C268A07-7862-1514-9CA2-F18C917EFF83}</Project>      <Name>Assembly-CSharp</Name>    </ProjectReference>
   </ItemGroup>

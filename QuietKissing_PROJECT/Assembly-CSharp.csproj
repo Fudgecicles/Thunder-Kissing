@@ -150,6 +150,7 @@
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\_IMPORT\ProCore\Shared\About\README.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\UnlitColor.shader" />
@@ -178,10 +179,6 @@
  <Reference Include="SixBySeven">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/_IMPORT/ProCore/Shared/Code/SixBySeven.dll</HintPath>
  </Reference>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="Assembly-UnityScript-firstpass.unityproj">
-      <Project>{05E1B217-4A60-0A4B-9767-A1F674CB0073}</Project>      <Name>Assembly-UnityScript-firstpass</Name>    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

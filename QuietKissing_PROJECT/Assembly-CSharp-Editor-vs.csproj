@@ -82,6 +82,7 @@
      <None Include="Assets\_IMPORT\Photon Unity Networking\Demos\MarcoPolo-Tutorial\marcopolo-readme.txt" />
      <None Include="Assets\_IMPORT\ProCore\Shared\About\README.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorTransparency.shader" />
+     <None Include="Assets\Standard Assets\Skyboxes\_skybox info.txt" />
      <None Include="Assets\Standard Assets\Toon Shading\Sources\Shaders\Toony-BasicOutline.shader" />
      <None Include="Assets\Plugins\release_history.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\UnlitColor.shader" />
@@ -95,9 +96,6 @@
      <None Include="Assets\_IMPORT\ProCore\Prototype\Shader\DiffuseVertexColorEmission.shader" />
      <None Include="Assets\_IMPORT\Photon Unity Networking\changelog.txt" />
      <None Include="Assets\_IMPORT\ProCore\Prototype\About\Credits.txt" />
- <Reference Include="Assembly-UnityScript-firstpass">
- <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Library/ScriptAssemblies/Assembly-UnityScript-firstpass.dll</HintPath>
- </Reference>
  <Reference Include="Photon3Unity3D">
  <HintPath>C:/Users/Wedgiebee/Documents/GitHub/Thunder-Kissing/QuietKissing_PROJECT/Assets/Plugins/Photon3Unity3D.dll</HintPath>
  </Reference>
