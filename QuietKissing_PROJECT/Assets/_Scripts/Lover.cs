@@ -150,7 +150,7 @@ public class Lover : MonoBehaviour {
 		// [] change screen to look all kissy and stuff
 
 		photonView.RPC ("enterKissMutualRPC", PhotonTargets.AllBuffered); // call rpc
-        particles = (GameObject)Instantiate(Resources.Load("prf_party_love"), transform.position, Quaternion.identity);
+        particles = (GameObject)Instantiate(Resources.Load("Prefabs/prf_party_love"), transform.position, Quaternion.EulerAngles(new Vector3(-90,0,0)));
 	}
 
 	[RPC]
@@ -182,5 +182,9 @@ public class Lover : MonoBehaviour {
 	void exitKissMutualRPC() {
 		m_isKissingMutual = false;
 		if (photonView.isMine) sfx_kissMutualMusic.Pause ();
+        if (particles != null)
+        {
+            Destroy(particles);
+        }
 	}
 }

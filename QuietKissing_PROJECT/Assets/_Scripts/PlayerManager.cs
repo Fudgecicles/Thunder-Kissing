@@ -6,7 +6,7 @@ public class PlayerManager : Photon.MonoBehaviour {
     Cupid cupidScript;
     Lover loverScript;
     CharacterMotor motor;
-    bool cupid = true;
+    public bool cupid = true;
 
 	// Use this for initialization
 	void Start () {
@@ -28,11 +28,13 @@ public class PlayerManager : Photon.MonoBehaviour {
             {
                 if (!cupid)
                 {
+                    Debug.Log("this haps");
                     GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
                     for (int k = 0; k < players.Length; k++)
                     {
                         players[k].GetComponent<PlayerManager>().photonView.RPC("playerHit", PhotonTargets.AllBuffered, col.GetComponent<Arrow>().id, PhotonNetwork.player.ID);
                     }
+                    PhotonNetwork.Instantiate("Prefabs/prf_love_spurt", col.transform.FindChild("GameObject").transform.position, (col.transform.rotation), 0);
                 }
             }
         }
@@ -61,6 +63,7 @@ public class PlayerManager : Photon.MonoBehaviour {
             cupidScript.enabled = false;
             loverScript.isLover = true;
             motor.cupid = false;
+            cupid = false;
         }
     }
 
@@ -72,6 +75,7 @@ public class PlayerManager : Photon.MonoBehaviour {
             loverScript.isLover = false;
             cupidScript.numArrows = 3;
             motor.cupid = true;
+            cupid = true;
         }
     }
 }

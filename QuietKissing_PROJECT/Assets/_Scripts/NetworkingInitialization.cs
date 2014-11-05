@@ -64,12 +64,15 @@ public class NetworkingInitialization : MonoBehaviour {
                 monster.GetComponent<Cupid>().enabled = true;
                 variables.incrementCupids();
                 monster.GetComponent<CharacterMotor>().cupid = true;
+                monster.GetComponent<PlayerManager>().cupid = true;
             }
             else
             {
                 monster.GetComponent<Lover>().isLover = true;
                 variables.incrementLovers();
                 monster.GetComponent<CharacterMotor>().cupid = false;
+                monster.GetComponent<PlayerManager>().cupid = false;
+
             }
         }
         else if (variables.lovers < 2)
@@ -77,6 +80,8 @@ public class NetworkingInitialization : MonoBehaviour {
             monster.GetComponent<Lover>().isLover = true;
             variables.incrementLovers();
             monster.GetComponent<CharacterMotor>().cupid = false;
+            monster.GetComponent<PlayerManager>().cupid = false;
+
 
         }
         else if (variables.cupids < 2)
@@ -84,6 +89,8 @@ public class NetworkingInitialization : MonoBehaviour {
             monster.GetComponent<Cupid>().enabled = true;
             variables.incrementCupids();
             monster.GetComponent<CharacterMotor>().cupid = true;
+            monster.GetComponent<PlayerManager>().cupid = true;
+
         }
         else
         {
