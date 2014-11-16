@@ -56,6 +56,7 @@ public class KissBox : MonoBehaviour {
 	 * but they haven't actually kissed yet */
 	void OnTriggerStay (Collider other) {
 		Lover otherLover = other.GetComponent<Lover> ();
+        Debug.Log(other.gameObject.name);
 		if (otherLover == myLover) return; // can't kiss myself on the mouth afterall!
 		if (otherLover != null) {
 			if (!myLover.IsKissingMutual) { // make sure that y'all aren't already macking
