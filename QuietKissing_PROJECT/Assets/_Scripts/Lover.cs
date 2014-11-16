@@ -7,14 +7,17 @@ public class Lover : MonoBehaviour {
 	public Material mat_kissing;
 
 	public AudioSource sfx_kiss; // looping kissing noise that plays while kissing
-	public AudioSource sfx_kissMutualMusic; // looping kissmutual music that plays while kissing mutually
+	public AudioSource[] sfx_kissMutualMusic; // looping kissmutual music that plays while kissing mutually
 	public Vector4 kissingBounds; // clamping of the mouse look while kissing (x:min/max, y:min/max)
 
 	private Vector4 originalBounds;
 	private MouseLook[] mouseLooks;
 	private PhotonView photonView;
     private GameObject particles;
+    int source = 0;
     public bool isLover = false;
+    GameObject school;
+    GameObject locker;
 
 
 	private bool m_isKissing = false;
@@ -35,7 +38,13 @@ public class Lover : MonoBehaviour {
 	private float durationOfCurrentMutualKiss = 0;
 	public Lover currentlyKissingThisLover;
 
+    GUIHandler handler;
+
 	void Awake() {
+        school = GameObject.Find("School");
+        locker = GameObject.Find("Locker");
+        handler = GetComponent<GUIHandler>();
+
 		photonView = GetComponent<PhotonView> ();
 
 		// grab necessary mouse look information
@@ -57,6 +66,26 @@ public class Lover : MonoBehaviour {
         {
             if (photonView.isMine)
             {
+                float distance = Mathf.Max(Vector3.Distance(transform.position, school.transform.position), Vector3.Distance(transform.position, locker.transform.position));
+                if (distance < 50)
+                {
+                    if (transform.position.y > 0)
+                    {
+                        source = 2;
+                    }
+                    else
+                    {
+                        source = 1;
+                    }
+                }
+                else
+                {
+                    if (transform.position.y > -5)
+                    {
+                        source = 2;
+                    }
+                    source = 0;
+                }
                 if (Input.GetMouseButtonDown(0))
                 {
                     enterKiss();
@@ -123,6 +152,7 @@ public class Lover : MonoBehaviour {
 	void updateKissMutual() {
 		if (m_isKissingMutual) {
 			photonView.RPC ("updateKissMutualRPC", PhotonTargets.AllBuffered);
+            handler.updateScore(Score);
 			/* i have a suspicion that it's stupid do call an rpc in update
 			 * what's the better way to do this
 			 * idunno */
@@ -156,7 +186,7 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void enterKissMutualRPC() {
 		m_isKissingMutual = true; // set is kissing mutual to true
-		if (photonView.isMine) sfx_kissMutualMusic.Play ();
+		if (photonView.isMine) sfx_kissMutualMusic[source].Play ();
 	}
 
 	// this is going to be called by a collider in ONE person's simulation
@@ -181,7 +211,7 @@ public class Lover : MonoBehaviour {
 	[RPC]
 	void exitKissMutualRPC() {
 		m_isKissingMutual = false;
-		if (photonView.isMine) sfx_kissMutualMusic.Pause ();
+		if (photonView.isMine) sfx_kissMutualMusic[source].Pause ();
         if (particles != null)
         {
             Destroy(particles);

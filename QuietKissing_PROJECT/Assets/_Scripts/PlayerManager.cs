@@ -7,9 +7,13 @@ public class PlayerManager : Photon.MonoBehaviour {
     Lover loverScript;
     CharacterMotor motor;
     public bool cupid = true;
+    GUIHandler handler;
+    GameObject arrow;
 
 	// Use this for initialization
 	void Start () {
+        arrow = transform.Find("Main Camera").Find("Arrows").gameObject;
+        handler = GetComponent<GUIHandler>();
         motor = GetComponent<CharacterMotor>();
         cupidScript = GetComponent<Cupid>();
         loverScript = GetComponent<Lover>();
@@ -59,7 +63,7 @@ public class PlayerManager : Photon.MonoBehaviour {
         }
     }
 
-    void toLover()
+    public void toLover()
     {
         if (cupid)
         {
@@ -67,10 +71,12 @@ public class PlayerManager : Photon.MonoBehaviour {
             loverScript.isLover = true;
             motor.cupid = false;
             cupid = false;
+            handler.updateState(false);
+            arrow.SetActive(false);
         }
     }
 
-    void toCupid()
+    public  void toCupid()
     {
         if (!cupid)
         {
@@ -79,6 +85,8 @@ public class PlayerManager : Photon.MonoBehaviour {
             cupidScript.numArrows = 3;
             motor.cupid = true;
             cupid = true;
+            handler.updateState(true);
+            arrow.SetActive(true);
         }
     }
 }

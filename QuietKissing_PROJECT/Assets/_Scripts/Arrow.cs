@@ -42,6 +42,7 @@ public class Arrow : Photon.MonoBehaviour {
             stuck = true;
             rigidbody.velocity = Vector3.zero;
             GameObject particle = transform.FindChild("Particle System").gameObject;
+            transform.Find("prf_party_love").GetComponent<ParticleSystem>().Stop();
             particle.SetActive(true);
             particle.transform.LookAt(Vector3.up);
 

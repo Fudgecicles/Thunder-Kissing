@@ -13,11 +13,14 @@ public class Cupid : Photon.MonoBehaviour {
     GameObject shotLocation;
     List<GameObject> arrows = new List<GameObject>();
     GameObject camera;
+    GUIHandler handler;
+    public AudioSource twang;
 	
 	void Start () {
         shotLocation = transform.Find("shotLocation").gameObject;
         camera = transform.FindChild("Main Camera").gameObject;
-	}
+        handler = GetComponent<GUIHandler>();
+    }
 
 	void Update () {
         if (photonView.isMine)
@@ -31,6 +34,7 @@ public class Cupid : Photon.MonoBehaviour {
                 if (Input.GetMouseButtonUp(0))
                 {
                     fireShot();
+                    
                 }
             }
         }
@@ -56,6 +60,7 @@ public class Cupid : Photon.MonoBehaviour {
         arrow.GetComponent<Arrow>().id = PhotonNetwork.player.ID;
         power = 1;
         --numArrows;
+        handler.updateArrows(numArrows);
     }
 
     
@@ -68,6 +73,7 @@ public class Cupid : Photon.MonoBehaviour {
             {
                 PhotonNetwork.Destroy(col.transform.parent.gameObject);
                 ++numArrows;
+                handler.updateArrows(numArrows);
             }
             else
             {
